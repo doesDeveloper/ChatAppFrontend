@@ -2,24 +2,89 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>WebSocket Chat</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-	<script src="script.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+    <title>ChatApp</title>
 </head>
 
-<body onload=afterLoading()>
-	<div class="chat-container">
-		<h2>WebSocket Chat Application</h2>
-		<div id="chat-box" class="chat-box"></div>
-		<div class="input-container">
-			<input type="text" id="message" class="message-input" placeholder="Enter your message here..." />
-			<button id="send-button" class="send-button" onclick="sendMessage()">Send</button>
-		</div>
-	</div>
+<body onload="onLoad()">
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="main">
+                        <h1>Join Chat</h1>
+                        <h3>Enter name and room details to join the chat</h3>
+                        <form id="roomform">
+                            <div class="form-group">
+                                <!-- <label for="nameInput">Name</label> -->
+                                <input type="name" class="form-control" id="usernameInput" required
+                                    placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="roomNameInput">Room Name</label> -->
+                                <input type="name" class="form-control" id="roomNameInput" required
+                                    placeholder="Room name">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="roomIdInput">Room Id</label> -->
+                                <input type="name" class="form-control" id="roomIdInput" required placeholder="Room Id">
+                            </div>
+                            <button class="btn-submit">Join Chat</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <div class="chat">
+            <div class="    contact bar">
+                <!-- <div class="pic stark"></div> -->
+                <div class="name" id="roomName">
+                    Private Room
+                </div>
+                <div class="description" id="roomId">
+                    Room Id: ***
+                </div>
+            </div>
+            <div class="messages" id="chat-box">
+                <div class="time">
+                    Today at 11:41
+                </div>
+                <div class="message messagesend">
+                    <div class="sender">Peter Parker</div>
+                    <div class="content"> Hey, What's going on? </div>
+                </div>
+                <div class="message messagerec">
+                    <div class="sender">Tony Stark</div>
+                    <div class="content"> Nothing much why even bother messaging?</div>
+                </div>
+                <div class="message messagesend">
+                    <div class="sender">Peter Parker</div>
+                    <div class="content"> Just wanted to say that the person reading this chat has nothing else to do!
+                    </div>
+                </div>
+                <div class="message messagesend">
+                    <div class="sender">Peter Parker</div>
+                    <div class="content"> Uh, what is this guy's problem</div>
+                </div>
+                <div class="message messagerec">
+                    <div class="sender">Steve Rogers</div>
+                    <div class="content"> I guess he is just not in the right place he should join his room.</div>
+                </div>
+            </div>
+            <div class="input">
+                <input placeholder="Type your message here!" id="message" type="text" />
+                <i class="fas fa-paper-plane" onclick="sendMessage()"></i>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
