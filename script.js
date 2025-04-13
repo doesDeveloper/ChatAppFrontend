@@ -5,8 +5,8 @@ var stompClient = null;
 var chatBox = null;
 let currentPage = 0;
 const pageSize = 10;
-// const host = "http://localhost:8080";
-const host = "https://2604d3452be6937ad037e91589318b56.serveo.net";
+const host = "http://localhost:8080";
+// const host = "https://2604d3452be6937ad037e91589318b56.serveo.net";
 do {
     name = prompt("Enter your name (cannot be empty or canceled):");
 } while (name === null || name.trim() === "");
@@ -31,7 +31,6 @@ function loadHistory() {
         })
         .catch(err => console.error("Failed to load history", err));
 }
-
 
 function connect() {
     var socket = new SockJS(host + '/ws');
@@ -79,9 +78,8 @@ function hookChatUpdate() {
     });
     chatBox.scrollTop = chatBox.scrollHeight;
 }
-connect();
 // pressing enter sends the chat
-function sendOnEnterHook() {
+function hookInput() {
     document.getElementById("message").addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -92,5 +90,7 @@ function sendOnEnterHook() {
 function afterLoading() {
     hookChatUpdate();
     loadHistory();
-    sendOnEnterHook();
+    hookInput();
 }
+
+connect();
