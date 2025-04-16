@@ -14,6 +14,26 @@
 </head>
 
 <body onload="onLoad()">
+    <div class="modal fade" id="modalUsername" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="closebtn" onclick="hideUsernameModal()">X</div>
+                    <div id="main">
+                        <h1>Update Name</h1>
+                        <h3>Enter your new name</h3>
+                        <form id="changeusernameform">
+                            <div class="form-group">
+                                <input type="name" class="form-control" id="changeUsernameInput" required
+                                    placeholder="Enter your name">
+                            </div>
+                            <button class="btn-submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -89,7 +109,7 @@
                 <div class="description" id="roomId">
                     Room Id: ***
                 </div>
-                <div class="ppic stark"></div>
+                <div class="ppic stark" onclick="showChangeUsernameModal()"></div>
             </div>
             <div class="messages" id="chat-box">
                 <div class="time">

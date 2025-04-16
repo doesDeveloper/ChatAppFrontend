@@ -9,23 +9,6 @@ const pageSize = 10;
 // const host = "https://d1a00207337e3f2f305d62fc75b6a6b8.serveo.net";
 const host = "https://chatapp-ztkt.onrender.com";
 
-// function loadHistory() {
-//     const previousScrollHeight = chatBox.scrollHeight;
-
-//     fetch(`${host}/chat/history/${roomId}?page=${currentPage}&size=${pageSize}`)
-//         .then(res => res.json())
-//         .then(messages => {
-//             if (messages.length == 0) { currentPage--; return; };
-//             messages.forEach(msg => {
-//                 showHistory(msg) // prepend for top-down scroll
-//             });
-//             const newScrollHeight = chatBox.scrollHeight;
-//             chatBox.scrollTop = newScrollHeight - previousScrollHeight;
-//         })
-//         .catch(err => { console.error("Failed to load history", err); currentPage--; });
-//     currentPage++;
-// }
-
 function loadHistory() {
     if (isLoadingChat) return;
     isLoadingChat = true;
@@ -154,7 +137,7 @@ function onLoad() {
     roomId = localStorage.getItem('roomId');
     username = localStorage.getItem('username');
     roomName = localStorage.getItem('roomName');
-
+    document.getElementById("changeUsernameInput").value = username;
     if (username != null && rooms.length > 0) {
         document.getElementById("roomName").textContent = roomName;
         document.getElementById("roomId").textContent = `Room Id: ${roomId}`;
@@ -176,10 +159,24 @@ function onLoad() {
         event.preventDefault();
         addRoom();
     });
+    document.getElementById("changeusernameform").addEventListener("submit", function (event) {
+        event.preventDefault();
+        changeUsername();
+    });
     hookInput();
     loadRoomsContact();
 }
-
+function changeUsername() {
+    username = document.getElementById("changeUsernameInput").value.trim();
+    localStorage.setItem('username', username);
+    hideChangeUsernameModal();
+}
+function hideChangeUsernameModal() {
+    document.getElementById("modalUsername").style.display = "none";
+}
+function showChangeUsernameModal() {
+    document.getElementById("modalUsername").style.display = "block";
+}
 function addRoom() {
     hideRoomModal();
     let room = {
