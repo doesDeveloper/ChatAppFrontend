@@ -197,13 +197,16 @@ function showRoomModal() {
 }
 let contactsVisible = false;
 function toggleContacts() {
-    console.log("was heree")
     contactsVisible = !contactsVisible;
     if (contactsVisible) {
-        document.getElementById("contacts").style.transform = "translate(-17rem, -50%)";
+        document.getElementById("contacts").classList.add("visible");
     } else {
-        document.getElementById("contacts").style.transform = "translate(-17rem, -50%)";
+        document.getElementById("contacts").classList.remove("visible");
     }
+}
+function hideContacts() {
+    contactsVisible = false;
+    document.getElementById("contacts").classList.remove("visible");
 }
 
 let rooms = JSON.parse(localStorage.getItem('rooms')) || [];
@@ -244,6 +247,7 @@ function joinRoom(room) {
     roomId = room.roomId;
     roomName = room.roomName;
     console.log(roomId, roomName)
+    hideContacts();
     if (closeChat()) {
         document.getElementById("roomName").textContent = roomName;
         document.getElementById("roomId").textContent = `Room Id: ${roomId}`;

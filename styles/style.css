@@ -27,6 +27,15 @@ html {
   border-radius: 50%;
 }
 
+.contactstoggle {
+  width: 4rem;
+  height: 4rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  display: none;
+}
+
 .ppic {
   width: 4rem;
   height: 4rem;
@@ -43,6 +52,12 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.contact .contactstoggle {
+  position: absolute;
+  align-content: center;
+  cursor: pointer;
+  left: 0;
 }
 .contact .pic {
   position: absolute;
@@ -109,6 +124,34 @@ html {
   background: #F7F7F7;
 }
 
+@media only screen and (max-width: 1300px) {
+  .contactstoggle {
+    display: block;
+  }
+  .contacts {
+    position: absolute;
+    top: 10%;
+    transform: translate(0rem, 100%);
+    z-index: 4;
+    width: 100%;
+    max-width: inherit;
+    height: 90%;
+    padding: 1rem 2rem 1rem 1rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.1), 2rem 2rem 4rem -3rem rgba(0, 0, 0, 0.5);
+    transition: transform 500ms;
+  }
+  .contacts h2 {
+    margin: 0.5rem 0 1.5rem 0rem;
+    text-align: center;
+  }
+  .contacts.visible {
+    transform: translate(0rem, 0%);
+  }
+}
 .chat {
   position: relative;
   display: flex;
