@@ -5,15 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
     <title>ChatApp</title>
 </head>
 
 <body onload="onLoad()">
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="closebtn" onclick="hideRoomModal()">X</div>
+                    <div id="main">
+                        <h1>Create Room</h1>
+                        <h3>Enter name and room id to join the room</h3>
+                        <form id="addroomform">
+                            <div class="form-group">
+                                <!-- <label for="roomNameInput">Room Name</label> -->
+                                <input type="name" class="form-control" id="addroomNameInput" required
+                                    placeholder="Room name">
+                            </div>
+                            <div class="form-group">
+                                <!-- <label for="roomIdInput">Room Id</label> -->
+                                <input type="name" class="form-control" id="addroomIdInput" required
+                                    placeholder="Room Id">
+                            </div>
+                            <button class="btn-submit">Join Room</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalJoin" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -43,15 +69,26 @@
         </div>
     </div>
     <div class="center">
+        <div class="contacts" id="contacts">
+            <i class="fas fa-bars fa-2x" onclick="toggleContacts()"></i>
+            <h2>
+                Rooms
+            </h2>
+            <div class="contact" id="addRoom" onclick="showRoomModal()">
+                <div class="pic stark"></div>
+                <div class="name">Add Room</div>
+                <div class="message">Room Id: xxxx</div>
+            </div>
+        </div>
         <div class="chat">
-            <div class="    contact bar">
-                <!-- <div class="pic stark"></div> -->
+            <div class="contact bar">
                 <div class="name" id="roomName">
                     Private Room
                 </div>
                 <div class="description" id="roomId">
                     Room Id: ***
                 </div>
+                <div class="ppic stark"></div>
             </div>
             <div class="messages" id="chat-box">
                 <div class="time">

@@ -7,18 +7,27 @@ html {
   letter-spacing: 0.025em;
   color: #474747;
   background: #F7F7F7;
-  height: 98%;
+  height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 .center {
   margin: auto;
-  margin-top: 1.5%;
-  width: 50%;
+  width: 100%;
+  max-width: 800px;
   height: 100%;
 }
 
 .pic {
+  width: 4rem;
+  height: 4rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.ppic {
   width: 4rem;
   height: 4rem;
   background-size: cover;
@@ -38,6 +47,10 @@ html {
 .contact .pic {
   position: absolute;
   left: 0;
+}
+.contact .ppic {
+  position: absolute;
+  right: 0;
 }
 .contact .name {
   font-weight: 600;
@@ -66,10 +79,9 @@ html {
 .contacts {
   position: absolute;
   top: 50%;
-  left: 0;
   transform: translate(-6rem, -50%);
   width: 24rem;
-  height: 32rem;
+  height: 90%;
   padding: 1rem 2rem 1rem 1rem;
   box-sizing: border-box;
   border-radius: 1rem 0 0 1rem;
@@ -93,8 +105,8 @@ html {
 .contacts .contact:last-child {
   margin: 0;
 }
-.contacts:hover {
-  transform: translate(-23rem, -50%);
+.contacts .contact:hover {
+  background: #F7F7F7;
 }
 
 .chat {
@@ -104,6 +116,8 @@ html {
   justify-content: space-between;
   width: 100%;
   height: 98%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   z-index: 2;
   box-sizing: border-box;
   border-radius: 1rem;
@@ -224,7 +238,8 @@ html {
 .modal .modal-dialog {
   z-index: 11;
   position: fixed;
-  width: 30rem;
+  width: 90%;
+  max-width: 500px;
   height: 28.125rem;
   top: 50%;
   left: 50%;
@@ -247,14 +262,16 @@ html {
   margin-bottom: 2.5rem;
 }
 .modal .form-group {
-  width: 21.875rem;
+  width: 100%;
+  max-width: 21.875rem;
   margin-top: 1.25rem;
   margin-left: auto;
   margin-right: auto;
 }
 .modal .form-group .form-control {
   height: 2.5rem;
-  width: 100%;
+  width: -webkit-fill-available;
+  max-width: 21.875rem;
   border: 0.125rem solid #222;
   border-radius: 0.375rem;
   background: transparent;
@@ -296,6 +313,17 @@ html {
   margin: 0 auto;
   margin-bottom: 1.875rem;
 }
+.modal .closebtn {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  font-size: larger;
+  font-weight: bolder;
+  align-content: center;
+}
 
 .fade {
   z-index: 9;
@@ -316,6 +344,10 @@ html {
     opacity: 1;
   }
 }
+.ppic.stark {
+  background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/73/SMH_Mentor_6.png");
+}
+
 .pic.stark {
   background-image: url("https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/7/73/SMH_Mentor_6.png");
 }
