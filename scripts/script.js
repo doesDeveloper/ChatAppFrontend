@@ -198,9 +198,9 @@ function toggleContacts() {
     console.log("was heree")
     contactsVisible = !contactsVisible;
     if (contactsVisible) {
-        document.getElementById("contacts").style.transform = "translate(-23rem, -50%)";
+        document.getElementById("contacts").style.transform = "translate(-17rem, -50%)";
     } else {
-        document.getElementById("contacts").style.transform = "translate(-6rem, -50%)";
+        document.getElementById("contacts").style.transform = "translate(-17rem, -50%)";
     }
 }
 

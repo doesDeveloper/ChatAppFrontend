@@ -79,8 +79,8 @@ html {
 .contacts {
   position: absolute;
   top: 50%;
-  transform: translate(-6rem, -50%);
-  width: 24rem;
+  transform: translate(-17rem, -50%);
+  width: 20rem;
   height: 90%;
   padding: 1rem 2rem 1rem 1rem;
   box-sizing: border-box;
