@@ -7,7 +7,7 @@ let currentPage = 0;
 const pageSize = 10;
 // const host = "http://localhost:8080";
 // const host = "https://d1a00207337e3f2f305d62fc75b6a6b8.serveo.net";
-const host = "https://chatapp-ztkt.onrender.com/";
+const host = "https://chatapp-ztkt.onrender.com";
 
 // function loadHistory() {
 //     const previousScrollHeight = chatBox.scrollHeight;
