@@ -5,8 +5,8 @@ var stompClient = null;
 var chatBox = null;
 let currentPage = 0;
 const pageSize = 10;
-const host = "http://localhost:8080";
-// const host = "https://1dfb8fcf7f9767cb680dc5194db3695d.serveo.net";
+// const host = "http://localhost:8080";
+const host = "https://d1a00207337e3f2f305d62fc75b6a6b8.serveo.net";
 
 // function loadHistory() {
 //     const previousScrollHeight = chatBox.scrollHeight;
